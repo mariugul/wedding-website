@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <!-- Background gradient -->
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#d4c4b5"/>
+      <stop offset="50%" style="stop-color:#e8ddd3"/>
+      <stop offset="100%" style="stop-color:#f5efe9"/>
+    </linearGradient>
+    
+    <!-- Decorative pattern -->
+    <pattern id="floralPattern" width="200" height="200" patternUnits="userSpaceOnUse">
+      <circle cx="100" cy="100" r="3" fill="#c9a87c" opacity="0.3"/>
+      <circle cx="50" cy="50" r="2" fill="#7d6b5d" opacity="0.2"/>
+      <circle cx="150" cy="50" r="2" fill="#7d6b5d" opacity="0.2"/>
+      <circle cx="50" cy="150" r="2" fill="#7d6b5d" opacity="0.2"/>
+      <circle cx="150" cy="150" r="2" fill="#7d6b5d" opacity="0.2"/>
+    </pattern>
+    
+    <!-- Soft light overlay -->
+    <radialGradient id="lightOverlay" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.3"/>
+      <stop offset="100%" style="stop-color:#ffffff;stop-opacity:0"/>
+    </radialGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1920" height="1080" fill="url(#bgGradient)"/>
+  
+  <!-- Pattern overlay -->
+  <rect width="1920" height="1080" fill="url(#floralPattern)"/>
+  
+  <!-- Light overlay -->
+  <rect width="1920" height="1080" fill="url(#lightOverlay)"/>
+  
+  <!-- Decorative elements - abstract florals -->
+  <g opacity="0.15">
+    <!-- Left floral cluster -->
+    <circle cx="200" cy="300" r="80" fill="#7d6b5d"/>
+    <circle cx="280" cy="250" r="60" fill="#a08d7d"/>
+    <circle cx="150" cy="380" r="50" fill="#c9a87c"/>
+    <circle cx="320" cy="350" r="40" fill="#7d6b5d"/>
+    
+    <!-- Right floral cluster -->
+    <circle cx="1720" cy="700" r="90" fill="#7d6b5d"/>
+    <circle cx="1640" cy="780" r="70" fill="#a08d7d"/>
+    <circle cx="1780" cy="620" r="55" fill="#c9a87c"/>
+    <circle cx="1600" cy="680" r="45" fill="#7d6b5d"/>
+    
+    <!-- Bottom decorative -->
+    <ellipse cx="960" cy="1000" rx="400" ry="100" fill="#d4c4b5"/>
+  </g>
+  
+  <!-- Intertwined rings symbol -->
+  <g transform="translate(960, 540)" opacity="0.12">
+    <circle cx="-40" cy="0" r="100" fill="none" stroke="#7d6b5d" stroke-width="8"/>
+    <circle cx="40" cy="0" r="100" fill="none" stroke="#7d6b5d" stroke-width="8"/>
+  </g>
+  
+  <!-- Text placeholder indicator -->
+  <g transform="translate(960, 540)">
+    <rect x="-200" y="150" width="400" height="60" rx="8" fill="#7d6b5d" opacity="0.1"/>
+    <text x="0" y="190" text-anchor="middle" font-family="Georgia, serif" font-size="18" fill="#7d6b5d" opacity="0.5">
+      Replace with your photo
+    </text>
+  </g>
+  
+  <!-- Decorative corner flourishes -->
+  <g stroke="#c9a87c" stroke-width="2" fill="none" opacity="0.2">
+    <!-- Top left -->
+    <path d="M50,50 Q100,50 100,100"/>
+    <path d="M50,80 Q130,80 130,160"/>
+    
+    <!-- Top right -->
+    <path d="M1870,50 Q1820,50 1820,100"/>
+    <path d="M1870,80 Q1790,80 1790,160"/>
+    
+    <!-- Bottom left -->
+    <path d="M50,1030 Q100,1030 100,980"/>
+    <path d="M50,1000 Q130,1000 130,920"/>
+    
+    <!-- Bottom right -->
+    <path d="M1870,1030 Q1820,1030 1820,980"/>
+    <path d="M1870,1000 Q1790,1000 1790,920"/>
+  </g>
+</svg>

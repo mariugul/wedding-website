@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Meta Tags -->
+  <title>Travel & Accommodations - Partner A & Partner B Wedding</title>
+  <meta name="description" content="Travel information, transportation options, and hotel recommendations for Partner A and Partner B's wedding.">
+  
+  <!-- Open Graph / Social Media -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Travel - Partner A & Partner B Wedding">
+  <meta property="og:description" content="Everything you need to know about getting to and staying near the wedding venue.">
+  <meta property="og:image" content="../assets/hero-placeholder.webp">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <!-- Skip Link for Accessibility -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../index.html" class="site-logo">A & B</a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <ul class="nav-list">
+          <li><a href="../index.html" data-i18n="nav_home">Home</a></li>
+          <li><a href="schedule.html" data-i18n="nav_schedule">Schedule</a></li>
+          <li><a href="travel.html" aria-current="page" data-i18n="nav_travel">Travel</a></li>
+          <li><a href="rsvp.html" data-i18n="nav_rsvp">RSVP</a></li>
+          <li><a href="faq.html" data-i18n="nav_faq">FAQ</a></li>
+        </ul>
+      </nav>
+      <div class="lang-switcher">
+        <label for="lang-select" data-i18n="lang_select">Language</label>
+        <select id="lang-select" aria-label="Select language">
+          <option value="en">EN</option>
+          <option value="pt">PT</option>
+          <option value="no">NO</option>
+        </select>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main id="main-content">
+    <!-- Page Header -->
+    <div class="page-header">
+      <h1 data-i18n="travel_title">Travel & Accommodations</h1>
+      <p data-i18n="travel_subtitle">Everything you need to know about getting here and where to stay</p>
+    </div>
+
+    <div class="page-content">
+      <div class="container">
+        
+        <!-- Venue Location -->
+        <section class="section">
+          <h2 class="section-title" data-i18n="venue_title">The Venue</h2>
+          <div class="card text-center" style="max-width: 600px; margin: 0 auto;">
+            <!-- REPLACE: Update venue name and address -->
+            <h3>Venue Name</h3>
+            <p>
+              123 Wedding Lane<br>
+              City, Postal Code<br>
+              Country
+            </p>
+            <p style="margin-top: var(--spacing-sm);">
+              <!-- REPLACE: Update with actual Google Maps link -->
+              <a href="https://maps.google.com/?q=City+Country" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                <span data-i18n="btn_maps">Open in Google Maps</span>
+              </a>
+            </p>
+          </div>
+        </section>
+
+        <!-- Map Placeholder -->
+        <section class="section">
+          <!-- 
+            REPLACE: To embed a Google Map without API keys:
+            1. Go to Google Maps and find your venue
+            2. Click "Share" > "Embed a map"
+            3. Copy the iframe code and replace the placeholder below
+            
+            Example:
+            <iframe src="https://www.google.com/maps/embed?pb=..." width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+          -->
+          <div class="map-placeholder">
+            <span class="map-placeholder-icon" aria-hidden="true">🗺️</span>
+            <h3 data-i18n="map_placeholder">Map Placeholder</h3>
+            <p><span data-i18n="map_instructions">Replace this section with a Google Maps embed.</span><br>
+            See the HTML comments for instructions.</p>
+          </div>
+        </section>
+
+        <!-- Getting There -->
+        <section class="section">
+          <h2 class="section-title" data-i18n="getting_there">Getting There</h2>
+          <div class="info-grid">
+            
+            <!-- By Air -->
+            <div class="info-card">
+              <h3>✈️ By Air</h3>
+              <!-- REPLACE: Update with nearest airports -->
+              <p>The nearest airports are:</p>
+              <ul>
+                <li><strong>City International Airport (ABC)</strong> - 30 minutes from venue</li>
+                <li><strong>Regional Airport (XYZ)</strong> - 45 minutes from venue</li>
+              </ul>
+              <p>We recommend booking flights early as September is a popular travel season.</p>
+            </div>
+
+            <!-- By Train -->
+            <div class="info-card">
+              <h3>🚂 By Train</h3>
+              <!-- REPLACE: Update with train station info -->
+              <p>The nearest train station is <strong>City Central Station</strong>, approximately 20 minutes from the venue.</p>
+              <p>Regular services run from:</p>
+              <ul>
+                <li>Capital City - 2 hours</li>
+                <li>Nearby City - 45 minutes</li>
+              </ul>
+            </div>
+
+            <!-- By Car -->
+            <div class="info-card">
+              <h3>🚗 By Car</h3>
+              <!-- REPLACE: Update with driving directions -->
+              <p>The venue has free parking available for all guests.</p>
+              <p><strong>From the Highway:</strong> Take exit 15, follow signs toward City Center, then turn right onto Wedding Lane.</p>
+              <p><strong>Please note:</strong> We will have alcoholic drinks, so please arrange alternative transport if you plan to drink.</p>
+            </div>
+
+            <!-- Local Transport -->
+            <div class="info-card">
+              <h3>🚕 Local Transport</h3>
+              <!-- REPLACE: Update with local transport options -->
+              <p>Getting around the area:</p>
+              <ul>
+                <li><strong>Taxi:</strong> Available at the airport and train station. Typical fare to venue: ~$30-40</li>
+                <li><strong>Ride-share:</strong> Uber and Lyft operate in the area</li>
+                <li><strong>Rental cars:</strong> Available at the airport</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- Accommodations -->
+        <section class="section">
+          <h2 class="section-title">Where to Stay</h2>
+          <p class="section-subtitle">
+            We've compiled a list of nearby hotels for your convenience. 
+            We recommend booking early to secure the best rates.
+          </p>
+          
+          <div class="info-grid">
+            <!-- REPLACE: Update with actual hotel recommendations -->
+            
+            <div class="info-card">
+              <h3>🏨 Luxury Options</h3>
+              <ul class="hotel-list">
+                <li>
+                  <span class="hotel-name">Grand Hotel City</span>
+                  <span class="hotel-distance">5 min from venue</span>
+                  <p>Elegant 5-star hotel with spa and restaurant. Perfect for a special weekend.</p>
+                </li>
+                <li>
+                  <span class="hotel-name">The Plaza Hotel</span>
+                  <span class="hotel-distance">10 min from venue</span>
+                  <p>Historic boutique hotel in the city center with beautiful views.</p>
+                </li>
+              </ul>
+            </div>
+
+            <div class="info-card">
+              <h3>🛏️ Mid-Range Options</h3>
+              <ul class="hotel-list">
+                <li>
+                  <span class="hotel-name">City Center Inn</span>
+                  <span class="hotel-distance">8 min from venue</span>
+                  <p>Comfortable rooms with complimentary breakfast. Great value.</p>
+                </li>
+                <li>
+                  <span class="hotel-name">Garden View Hotel</span>
+                  <span class="hotel-distance">12 min from venue</span>
+                  <p>Family-friendly hotel with pool and free parking.</p>
+                </li>
+              </ul>
+            </div>
+
+            <div class="info-card">
+              <h3>💰 Budget-Friendly Options</h3>
+              <ul class="hotel-list">
+                <li>
+                  <span class="hotel-name">Express Inn</span>
+                  <span class="hotel-distance">15 min from venue</span>
+                  <p>Clean, basic rooms at affordable prices.</p>
+                </li>
+                <li>
+                  <span class="hotel-name">Traveler's Rest B&B</span>
+                  <span class="hotel-distance">10 min from venue</span>
+                  <p>Cozy bed & breakfast with homemade breakfast included.</p>
+                </li>
+              </ul>
+            </div>
+
+            <div class="info-card">
+              <h3>🏠 Alternative Stays</h3>
+              <ul class="hotel-list">
+                <li>
+                  <span class="hotel-name">Airbnb / VRBO</span>
+                  <span class="hotel-distance">Various locations</span>
+                  <p>Great option for families or groups wanting more space. Many options available in the area.</p>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Room Block Note -->
+          <div class="card text-center" style="max-width: 600px; margin: var(--spacing-md) auto 0; background-color: var(--color-secondary);">
+            <!-- REPLACE: If you have a room block, update this section -->
+            <h4>🎉 Group Rate Available</h4>
+            <p>
+              We have reserved a block of rooms at <strong>Grand Hotel City</strong> at a special rate for wedding guests. 
+              Mention "Partner A & Partner B Wedding" when booking.
+            </p>
+            <p><strong>Rate:</strong> $XXX per night (normally $XXX)</p>
+            <p><strong>Book by:</strong> August 1, 2026</p>
+            <!-- REPLACE: Update booking link or phone number -->
+            <p><a href="#" class="btn btn-primary">Book Your Room</a></p>
+          </div>
+        </section>
+
+        <!-- Things to Do -->
+        <section class="section">
+          <h2 class="section-title">While You're Here</h2>
+          <p class="section-subtitle">Make a weekend of it! Here are some local attractions.</p>
+          
+          <div class="info-grid" style="max-width: 800px; margin: 0 auto;">
+            <!-- REPLACE: Update with local attractions -->
+            <div class="card">
+              <h4>🏛️ Sightseeing</h4>
+              <ul>
+                <li>Historic Old Town</li>
+                <li>City Museum</li>
+                <li>Famous Landmark</li>
+              </ul>
+            </div>
+            <div class="card">
+              <h4>🍽️ Dining</h4>
+              <ul>
+                <li>Local Restaurant Row</li>
+                <li>Famous Café District</li>
+                <li>Wine Country (30 min drive)</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <p class="footer-contact">
+        <span data-i18n="footer_questions">Questions? Contact us at</span> 
+        <a href="mailto:wedding@example.com">wedding@example.com</a>
+      </p>
+      <p class="footer-updated" data-i18n="footer_updated">Last updated: January 2026</p>
+    </div>
+  </footer>
+
+  <!-- Translations -->
+  <script src="../js/translations.js"></script>
+  <!-- Optional JS -->
+  <script src="../js/app.js" defer></script>
+</body>
+</html>

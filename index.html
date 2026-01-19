@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Meta Tags -->
+  <title>Partner A & Partner B - Wedding Celebration</title>
+  <meta name="description" content="Join us for the wedding celebration of Partner A and Partner B on Saturday, 12 September 2026 in City, Country.">
+  
+  <!-- Open Graph / Social Media -->
+  <!-- REPLACE: Update these with your actual wedding details -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Partner A & Partner B - Wedding Celebration">
+  <meta property="og:description" content="Join us for the wedding celebration of Partner A and Partner B on Saturday, 12 September 2026 in City, Country.">
+  <meta property="og:image" content="assets/hero-placeholder.webp">
+  <meta property="og:url" content="https://wedding.example.com">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  
+  <!-- Google Fonts - Single font for elegance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Skip Link for Accessibility -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <!-- REPLACE: Update couple names -->
+      <a href="index.html" class="site-logo">A & B</a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <ul class="nav-list">
+          <li><a href="index.html" aria-current="page" data-i18n="nav_home">Home</a></li>
+          <li><a href="pages/schedule.html" data-i18n="nav_schedule">Schedule</a></li>
+          <li><a href="pages/travel.html" data-i18n="nav_travel">Travel</a></li>
+          <li><a href="pages/rsvp.html" data-i18n="nav_rsvp">RSVP</a></li>
+          <li><a href="pages/faq.html" data-i18n="nav_faq">FAQ</a></li>
+        </ul>
+      </nav>
+      <div class="lang-switcher">
+        <label for="lang-select" data-i18n="lang_select">Language</label>
+        <select id="lang-select" aria-label="Select language">
+          <option value="en">EN</option>
+          <option value="pt">PT</option>
+          <option value="no">NO</option>
+        </select>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main id="main-content">
+    <!-- Hero Section -->
+    <section class="hero">
+      <!-- REPLACE: Add your own hero image (recommended size: 1920x1080px) -->
+      <img 
+        src="assets/hero-placeholder.svg" 
+        alt="Romantic outdoor wedding venue with string lights and flowers" 
+        class="hero-image"
+        width="1920"
+        height="1080"
+        loading="eager"
+      >
+      <div class="hero-overlay" aria-hidden="true"></div>
+      <div class="hero-content">
+        <!-- REPLACE: Update with your names -->
+        <h1 class="hero-title">Partner A & Partner B</h1>
+        <!-- REPLACE: Update with your wedding date -->
+        <p class="hero-date" data-i18n="hero_date">Saturday, 12 September 2026</p>
+        <!-- REPLACE: Update with your wedding location -->
+        <p class="hero-location" data-i18n="hero_location">City, Country</p>
+        <div class="btn-group">
+          <a href="pages/schedule.html" class="btn btn-primary" data-i18n="btn_schedule">View Schedule</a>
+          <a href="pages/rsvp.html" class="btn btn-outline" data-i18n="btn_rsvp">RSVP</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Welcome Section -->
+    <section class="section">
+      <div class="container">
+        <div class="welcome-section">
+          <!-- REPLACE: Update with your personal message -->
+          <h2 class="section-title" data-i18n="welcome_title">We're Getting Married!</h2>
+          <p data-i18n="welcome_p1">
+            We are so excited to celebrate our special day with you! After years of love and 
+            adventure together, we're finally tying the knot and we couldn't imagine doing it 
+            without our closest family and friends by our side.
+          </p>
+          <p data-i18n="welcome_p2">
+            We've put together all the information you'll need for the big day on this website. 
+            Please take a look at the schedule, travel details, and don't forget to RSVP!
+          </p>
+          <p data-i18n="welcome_p3">
+            We can't wait to celebrate with you!
+          </p>
+          <p><em data-i18n="welcome_closing">With love,</em></p>
+          <!-- REPLACE: Update with your names -->
+          <p><strong>Partner A & Partner B</strong></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quick Info Section -->
+    <section class="section" style="background-color: var(--color-secondary);">
+      <div class="container">
+        <h2 class="section-title" data-i18n="details_title">The Details</h2>
+        <div class="info-grid" style="max-width: 800px; margin: 0 auto;">
+          <div class="card text-center">
+            <h3>📅 <span data-i18n="details_when">When</span></h3>
+            <!-- REPLACE: Update date and time -->
+            <p><strong data-i18n="details_date">Saturday, 12 September 2026</strong></p>
+            <p data-i18n="details_ceremony">Ceremony begins at 3:00 PM</p>
+          </div>
+          <div class="card text-center">
+            <h3>📍 <span data-i18n="details_where">Where</span></h3>
+            <!-- REPLACE: Update venue and location -->
+            <p><strong data-i18n="details_venue">Venue Name</strong></p>
+            <p><span data-i18n="details_address">123 Wedding Lane</span><br><span data-i18n="hero_location">City, Country</span></p>
+          </div>
+        </div>
+        <div class="text-center" style="margin-top: var(--spacing-md);">
+          <a href="pages/travel.html" class="btn btn-primary" data-i18n="btn_travel">Travel & Accommodations</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <p class="footer-contact">
+        <span data-i18n="footer_questions">Questions? Contact us at</span> 
+        <!-- REPLACE: Update email address -->
+        <a href="mailto:wedding@example.com">wedding@example.com</a>
+      </p>
+      <!-- REPLACE: Update the date when you update content -->
+      <p class="footer-updated" data-i18n="footer_updated">Last updated: January 2026</p>
+    </div>
+  </footer>
+
+  <!-- Translations -->
+  <script src="js/translations.js"></script>
+  <!-- Optional JS -->
+  <script src="js/app.js" defer></script>
+</body>
+</html>

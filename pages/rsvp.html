@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Meta Tags -->
+  <title>RSVP - Partner A & Partner B Wedding</title>
+  <meta name="description" content="RSVP for Partner A and Partner B's wedding celebration on Saturday, 12 September 2026.">
+  
+  <!-- Open Graph / Social Media -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="RSVP - Partner A & Partner B Wedding">
+  <meta property="og:description" content="Let us know if you can make it to our special day!">
+  <meta property="og:image" content="../assets/hero-placeholder.webp">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <!-- Skip Link for Accessibility -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../index.html" class="site-logo">A & B</a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <ul class="nav-list">
+          <li><a href="../index.html" data-i18n="nav_home">Home</a></li>
+          <li><a href="schedule.html" data-i18n="nav_schedule">Schedule</a></li>
+          <li><a href="travel.html" data-i18n="nav_travel">Travel</a></li>
+          <li><a href="rsvp.html" aria-current="page" data-i18n="nav_rsvp">RSVP</a></li>
+          <li><a href="faq.html" data-i18n="nav_faq">FAQ</a></li>
+        </ul>
+      </nav>
+      <div class="lang-switcher">
+        <label for="lang-select" data-i18n="lang_select">Language</label>
+        <select id="lang-select" aria-label="Select language">
+          <option value="en">EN</option>
+          <option value="pt">PT</option>
+          <option value="no">NO</option>
+        </select>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main id="main-content">
+    <!-- Page Header -->
+    <div class="page-header">
+      <h1 data-i18n="rsvp_title">RSVP</h1>
+      <p data-i18n="rsvp_subtitle">Please let us know if you can join us</p>
+    </div>
+
+    <div class="page-content">
+      <div class="container">
+        <div class="rsvp-section">
+          
+          <!-- RSVP Deadline Notice -->
+          <div class="card text-center" style="margin-bottom: var(--spacing-md); background-color: var(--color-secondary);">
+            <!-- REPLACE: Update RSVP deadline -->
+            <h3 style="margin-bottom: var(--spacing-xs);">📅 <span data-i18n="rsvp_deadline">Please RSVP by August 1, 2026</span></h3>
+            <p style="margin: 0;" data-i18n="rsvp_deadline_note">We need final numbers for catering and seating arrangements.</p>
+          </div>
+
+          <!-- RSVP Form Embed Area -->
+          <div class="rsvp-embed">
+            <!--
+              ============================================================
+              REPLACE THIS SECTION WITH YOUR RSVP FORM
+              ============================================================
+              
+              OPTION 1: Google Forms
+              1. Create your RSVP form in Google Forms
+              2. Click "Send" > "<>" (Embed HTML)
+              3. Copy the iframe code and paste it below
+              
+              Example:
+              <iframe 
+                src="https://docs.google.com/forms/d/e/YOUR_FORM_ID/viewform?embedded=true" 
+                width="100%" 
+                height="600" 
+                frameborder="0" 
+                marginheight="0" 
+                marginwidth="0"
+                title="RSVP Form">
+                Loading…
+              </iframe>
+              
+              OPTION 2: Tally.so (Recommended - free, beautiful forms)
+              1. Create your form at tally.so
+              2. Click "Share" > "Embed"
+              3. Copy the iframe code
+              
+              Example:
+              <iframe 
+                src="https://tally.so/embed/YOUR_FORM_ID" 
+                width="100%" 
+                height="600" 
+                frameborder="0"
+                title="RSVP Form">
+              </iframe>
+              
+              OPTION 3: Typeform, Jotform, or other form services
+              Follow similar steps to embed their iframe code.
+              
+              ============================================================
+            -->
+            
+            <!-- PLACEHOLDER - Remove this div when adding your real form -->
+            <div class="rsvp-placeholder">
+              <span class="rsvp-placeholder-icon" aria-hidden="true">📝</span>
+              <h3 data-i18n="rsvp_form_title">RSVP Form Placeholder</h3>
+              <p>
+                <span data-i18n="rsvp_form_text">Replace this section with your embedded RSVP form.</span><br>
+                See the HTML comments above for detailed instructions.
+              </p>
+              <p style="margin-top: var(--spacing-sm);">
+                <strong data-i18n="rsvp_form_services">Recommended services:</strong><br>
+                Google Forms (free) | Tally.so (free) | Typeform
+              </p>
+            </div>
+            <!-- END PLACEHOLDER -->
+            
+          </div>
+
+          <!-- Fallback Contact Option -->
+          <div class="rsvp-fallback">
+            <h3 data-i18n="rsvp_trouble">Having trouble with the form?</h3>
+            <p data-i18n="rsvp_trouble_text">
+              No problem! You can also RSVP by sending us an email directly. 
+              Please include:
+            </p>
+            <ul style="text-align: left; display: inline-block; margin: var(--spacing-sm) 0;">
+              <li>Your name(s)</li>
+              <li>Number of guests attending</li>
+              <li>Any dietary restrictions</li>
+              <li>Song requests (optional!)</li>
+            </ul>
+            <p style="margin-top: var(--spacing-sm);">
+              <!-- REPLACE: Update email address -->
+              <a href="mailto:rsvp@example.com?subject=Wedding%20RSVP" class="btn btn-primary">
+                <span data-i18n="btn_email_rsvp">Email Your RSVP</span>
+              </a>
+            </p>
+            <p style="font-size: 0.9rem; color: var(--color-text-light); margin-top: var(--spacing-sm);">
+              <!-- REPLACE: Update email address -->
+              Or email us directly at: <a href="mailto:rsvp@example.com">rsvp@example.com</a>
+            </p>
+          </div>
+
+          <!-- What to Include -->
+          <div class="card" style="margin-top: var(--spacing-md);">
+            <h3>📋 What we need to know</h3>
+            <ul>
+              <li><strong>Your name(s)</strong> - As you'd like them on the place card</li>
+              <li><strong>Attendance</strong> - Will you be joining us?</li>
+              <li><strong>Number of guests</strong> - How many people in your party?</li>
+              <li><strong>Meal preference</strong> - Meat, fish, or vegetarian option</li>
+              <li><strong>Dietary restrictions</strong> - Allergies or special requirements</li>
+              <li><strong>Song requests</strong> - Help us build the playlist!</li>
+            </ul>
+          </div>
+
+          <!-- Contact for Questions -->
+          <div class="text-center" style="margin-top: var(--spacing-md);">
+            <p>
+              <strong>Questions about your invitation?</strong><br>
+              <!-- REPLACE: Update contact email -->
+              Please reach out to us at <a href="mailto:wedding@example.com">wedding@example.com</a>
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <p class="footer-contact">
+        <span data-i18n="footer_questions">Questions? Contact us at</span> 
+        <a href="mailto:wedding@example.com">wedding@example.com</a>
+      </p>
+      <p class="footer-updated" data-i18n="footer_updated">Last updated: January 2026</p>
+    </div>
+  </footer>
+
+  <!-- Translations -->
+  <script src="../js/translations.js"></script>
+  <!-- Optional JS -->
+  <script src="../js/app.js" defer></script>
+</body>
+</html>
