@@ -242,6 +242,42 @@
       font-size: 0.85rem;
       margin-bottom: 15px;
     }
+    .rsvp-guests {
+      margin-bottom: 20px;
+    }
+    .rsvp-guest-item {
+      display: flex;
+      align-items: center;
+      padding: 12px 15px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 6px;
+      margin-bottom: 8px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .rsvp-guest-item:hover {
+      background: rgba(255,255,255,0.15);
+    }
+    .rsvp-guest-item input[type="checkbox"] {
+      width: 20px;
+      height: 20px;
+      margin-right: 12px;
+      cursor: pointer;
+      accent-color: #4ade80;
+    }
+    .rsvp-guest-item label {
+      color: white;
+      cursor: pointer;
+      flex: 1;
+    }
+    .rsvp-guest-item .child-tag {
+      background: #7c3aed;
+      color: white;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      margin-left: 10px;
+    }
     @media (max-width: 600px) {
       .details-grid {
         grid-template-columns: 1fr;
@@ -347,19 +383,20 @@
           <div class="rsvp-section">
             <h3>💌 ${t('rsvp_title')}</h3>
             <div id="rsvp-current" class="rsvp-current"></div>
-            <div class="rsvp-options">
-              <button type="button" class="rsvp-btn" data-value="yes" onclick="selectRsvp('yes')">
-                ✓ ${t('rsvp_yes')}
-              </button>
-              <button type="button" class="rsvp-btn maybe" data-value="maybe" onclick="selectRsvp('maybe')">
-                ? ${t('rsvp_maybe')}
-              </button>
-              <button type="button" class="rsvp-btn no" data-value="no" onclick="selectRsvp('no')">
-                ✗ ${t('rsvp_no')}
-              </button>
+            
+            <p style="color: rgba(255,255,255,0.8); margin-bottom: 15px; font-size: 0.95rem;">${t('rsvp_who_coming')}</p>
+            <div class="rsvp-guests" id="rsvp-guests">
+              ${(guestData.guests || []).map((guest, i) => `
+                <div class="rsvp-guest-item" onclick="toggleGuest(${i})">
+                  <input type="checkbox" id="guest-${i}" checked>
+                  <label for="guest-${i}">${guest.name}</label>
+                  ${guest.child ? '<span class="child-tag">Child</span>' : ''}
+                </div>
+              `).join('')}
             </div>
+            
             <textarea class="rsvp-comment" id="rsvp-comment" placeholder="${t('rsvp_comment_placeholder')}"></textarea>
-            <button class="rsvp-submit" id="rsvp-submit" onclick="submitRsvp()" disabled>
+            <button class="rsvp-submit" id="rsvp-submit" onclick="submitRsvp()">
               ${t('rsvp_submit')}
             </button>
             <div id="rsvp-status"></div>
@@ -400,7 +437,6 @@
     }
 
     // RSVP Functions
-    let selectedRsvp = null;
     const isLocalDev = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
     const RSVP_STORAGE_KEY = 'wedding-rsvps';
     
@@ -416,15 +452,24 @@
       localStorage.setItem(RSVP_STORAGE_KEY, JSON.stringify(data));
     }
     
-    function selectRsvp(value) {
-      selectedRsvp = value;
-      document.querySelectorAll('.rsvp-btn').forEach(btn => {
-        btn.classList.remove('selected');
-        if (btn.dataset.value === value) {
-          btn.classList.add('selected');
+    function toggleGuest(index) {
+      const checkbox = document.getElementById(`guest-${index}`);
+      checkbox.checked = !checkbox.checked;
+    }
+    
+    function getSelectedGuests() {
+      const guests = guestData.guests || [];
+      const selected = [];
+      guests.forEach((guest, i) => {
+        const checkbox = document.getElementById(`guest-${i}`);
+        if (checkbox && checkbox.checked) {
+          selected.push({
+            name: guest.name,
+            child: guest.child || false
+          });
         }
       });
-      document.getElementById('rsvp-submit').disabled = false;
+      return selected;
     }
     
     async function loadExistingRsvp() {
@@ -434,11 +479,9 @@
         let rsvpData = null;
         
         if (isLocalDev) {
-          // Use localStorage for local development
           const storage = getRsvpStorage();
           rsvpData = storage[guestId];
         } else {
-          // Use Cloudflare Worker in production
           const res = await fetch(`/api/rsvp/${guestId}`);
           if (res.ok) {
             rsvpData = await res.json();
@@ -447,16 +490,27 @@
         
         if (rsvpData) {
           // Show current status
-          const statusText = {
-            yes: t('rsvp_status_yes'),
-            no: t('rsvp_status_no'),
-            maybe: t('rsvp_status_maybe')
-          };
-          document.getElementById('rsvp-current').textContent = 
-            `${t('rsvp_current')}: ${statusText[rsvpData.status] || rsvpData.status}`;
+          const attending = rsvpData.attending || [];
+          const count = attending.length;
+          const total = (guestData.guests || []).length;
           
-          // Pre-select the option
-          selectRsvp(rsvpData.status);
+          if (count === 0) {
+            document.getElementById('rsvp-current').textContent = t('rsvp_status_none');
+          } else if (count === total) {
+            document.getElementById('rsvp-current').textContent = t('rsvp_status_all');
+          } else {
+            document.getElementById('rsvp-current').textContent = 
+              `${t('rsvp_current')}: ${attending.map(g => g.name).join(', ')}`;
+          }
+          
+          // Set checkboxes based on saved data
+          const attendingNames = attending.map(g => g.name);
+          (guestData.guests || []).forEach((guest, i) => {
+            const checkbox = document.getElementById(`guest-${i}`);
+            if (checkbox) {
+              checkbox.checked = attendingNames.includes(guest.name);
+            }
+          });
           
           // Fill comment
           if (rsvpData.comment) {
@@ -469,17 +523,18 @@
     }
     
     async function submitRsvp() {
-      if (!selectedRsvp || !guestId) return;
+      if (!guestId) return;
       
       const submitBtn = document.getElementById('rsvp-submit');
       const statusDiv = document.getElementById('rsvp-status');
       const comment = document.getElementById('rsvp-comment').value.trim();
+      const attending = getSelectedGuests();
       
       submitBtn.disabled = true;
       submitBtn.textContent = t('rsvp_saving');
       
       const rsvpData = {
-        status: selectedRsvp,
+        attending: attending,
         comment: comment,
         updatedAt: new Date().toISOString(),
         guestId: guestId
@@ -487,12 +542,10 @@
       
       try {
         if (isLocalDev) {
-          // Save to localStorage for local development
           const storage = getRsvpStorage();
           storage[guestId] = rsvpData;
           saveRsvpStorage(storage);
         } else {
-          // Save to Cloudflare Worker in production
           const res = await fetch(`/api/rsvp/${guestId}`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -505,13 +558,16 @@
         statusDiv.textContent = t('rsvp_saved');
         
         // Update current status display
-        const statusText = {
-          yes: t('rsvp_status_yes'),
-          no: t('rsvp_status_no'),
-          maybe: t('rsvp_status_maybe')
-        };
-        document.getElementById('rsvp-current').textContent = 
-          `${t('rsvp_current')}: ${statusText[selectedRsvp]}`;
+        const count = attending.length;
+        const total = (guestData.guests || []).length;
+        if (count === 0) {
+          document.getElementById('rsvp-current').textContent = t('rsvp_status_none');
+        } else if (count === total) {
+          document.getElementById('rsvp-current').textContent = t('rsvp_status_all');
+        } else {
+          document.getElementById('rsvp-current').textContent = 
+            `${t('rsvp_current')}: ${attending.map(g => g.name).join(', ')}`;
+        }
         
       } catch (err) {
         statusDiv.className = 'rsvp-status error';

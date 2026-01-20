@@ -234,7 +234,10 @@ const translations = {
     rsvp_current: "Your current response",
     rsvp_status_yes: "Yes, attending",
     rsvp_status_no: "Not attending",
-    rsvp_status_maybe: "Maybe"
+    rsvp_status_maybe: "Maybe",
+    rsvp_who_coming: "Who will be attending?",
+    rsvp_status_all: "Everyone is attending!",
+    rsvp_status_none: "No one is attending"
   },
   
   pt: {
@@ -458,7 +461,10 @@ const translations = {
     rsvp_current: "Sua resposta atual",
     rsvp_status_yes: "Sim, vou participar",
     rsvp_status_no: "Não vou participar",
-    rsvp_status_maybe: "Talvez"
+    rsvp_status_maybe: "Talvez",
+    rsvp_who_coming: "Quem vai participar?",
+    rsvp_status_all: "Todos vão participar!",
+    rsvp_status_none: "Ninguém vai participar"
   },
   
   no: {
@@ -682,7 +688,10 @@ const translations = {
     rsvp_current: "Ditt nåværende svar",
     rsvp_status_yes: "Ja, jeg kommer",
     rsvp_status_no: "Kommer ikke",
-    rsvp_status_maybe: "Kanskje"
+    rsvp_status_maybe: "Kanskje",
+    rsvp_who_coming: "Hvem kommer?",
+    rsvp_status_all: "Alle kommer!",
+    rsvp_status_none: "Ingen kommer"
   }
 };
 
