@@ -1,0 +1,17 @@
+# Guest data (keep private)
+invitations/guests.json
+
+# Wrangler/Node
+.wrangler/
+node_modules/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+*.swp
+*.swo
+*~
+.vscode/
+.idea/

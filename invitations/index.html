@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wedding Invitation</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .invitation-container {
+      max-width: 600px;
+      margin: 100px auto;
+      padding: 40px;
+      text-align: center;
+    }
+    .guest-name {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: var(--primary-color, #2c3e50);
+    }
+    .invitation-text {
+      font-size: 1.2rem;
+      line-height: 1.8;
+      margin-bottom: 40px;
+    }
+    .rsvp-notice {
+      padding: 20px;
+      background: #f8f9fa;
+      border-radius: 8px;
+      color: #666;
+    }
+    .error-message {
+      color: #c0392b;
+      padding: 40px;
+    }
+    .loading {
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <div class="invitation-container">
+    <div id="content" class="loading">Loading...</div>
+  </div>
+
+  <script>
+    // Get guest ID from URL: ?guest=smith or #smith
+    const params = new URLSearchParams(window.location.search);
+    const guestId = params.get('guest') || window.location.hash.slice(1);
+
+    const content = document.getElementById('content');
+
+    if (!guestId) {
+      content.innerHTML = '<p class="error-message">No invitation found.<br>Please use the link provided in your invitation.</p>';
+    } else {
+      // Load guest data
+      fetch('guests.json')
+        .then(res => res.json())
+        .then(guests => {
+          const guest = guests[guestId];
+          if (!guest) {
+            content.innerHTML = '<p class="error-message">Invitation not found.<br>Please check your link or contact us.</p>';
+            return;
+          }
+          
+          content.innerHTML = `
+            <h1 class="guest-name">${guest.name}</h1>
+            <p class="invitation-text">${guest.text}</p>
+            <div class="rsvp-notice">
+              <strong>RSVP coming soon</strong>
+            </div>
+          `;
+        })
+        .catch(err => {
+          content.innerHTML = '<p class="error-message">Could not load invitation.<br>Please try again later.</p>';
+        });
+    }
+  </script>
+</body>
+</html>
