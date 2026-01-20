@@ -1,5 +1,6 @@
-# Guest data (keep private)
+# Guest data and config (keep private)
 invitations/guests.json
+invitations/config.json
 
 # Wrangler/Node
 .wrangler/

@@ -203,7 +203,18 @@ const translations = {
     invitation_check_or_contact: "Please check your link or contact us.",
     invitation_error: "Could not load invitation.",
     invitation_try_again: "Please try again later.",
-    rsvp_coming_soon: "RSVP coming soon"
+    rsvp_coming_soon: "RSVP coming soon",
+    
+    // Invitation details
+    inv_more_info: "More information is coming soon! We will notify you when the rest of the website is ready.",
+    inv_rsvp_notice: "RSVP functionality will be added soon with a deadline, so we can inform the venue of the final guest count.",
+    inv_faq_title: "Quick FAQ",
+    inv_faq_plusone_q: "Can I bring a +1?",
+    inv_faq_plusone_a: "The names on this invitation are the guests we are able to invite. We have many dear family members and friends, and while we wish we could celebrate with everyone in our lives, we have had to make difficult choices to keep our guest list manageable. We hope you understand.",
+    inv_travel_title: "Travel Information",
+    inv_travel_tap: "TAP Air Portugal is the most common airline for flights to Portugal. We are in contact with them about group tickets which may offer better prices. We will let you know as soon as we have more details!",
+    inv_when: "When",
+    inv_where: "Where"
   },
   
   pt: {
@@ -396,7 +407,18 @@ const translations = {
     invitation_check_or_contact: "Por favor, verifique seu link ou entre em contato conosco.",
     invitation_error: "Não foi possível carregar o convite.",
     invitation_try_again: "Por favor, tente novamente mais tarde.",
-    rsvp_coming_soon: "Confirmação em breve"
+    rsvp_coming_soon: "Confirmação em breve",
+    
+    // Invitation details
+    inv_more_info: "Mais informações em breve! Avisaremos quando o resto do site estiver pronto.",
+    inv_rsvp_notice: "A funcionalidade de confirmação será adicionada em breve com um prazo, para que possamos informar o local sobre o número final de convidados.",
+    inv_faq_title: "Perguntas Rápidas",
+    inv_faq_plusone_q: "Posso levar um acompanhante?",
+    inv_faq_plusone_a: "Os nomes neste convite são os convidados que podemos receber. Temos muitos familiares e amigos queridos, e embora desejássemos celebrar com todos em nossas vidas, tivemos que fazer escolhas difíceis para manter nossa lista de convidados gerenciável. Esperamos que você entenda.",
+    inv_travel_title: "Informações de Viagem",
+    inv_travel_tap: "A TAP Air Portugal é a companhia aérea mais comum para voos para Portugal. Estamos em contato com eles sobre bilhetes de grupo que podem oferecer melhores preços. Avisaremos assim que tivermos mais detalhes!",
+    inv_when: "Quando",
+    inv_where: "Onde"
   },
   
   no: {
@@ -589,7 +611,18 @@ const translations = {
     invitation_check_or_contact: "Vennligst sjekk lenken din eller kontakt oss.",
     invitation_error: "Kunne ikke laste invitasjonen.",
     invitation_try_again: "Vennligst prøv igjen senere.",
-    rsvp_coming_soon: "Svar kommer snart"
+    rsvp_coming_soon: "Svar kommer snart",
+    
+    // Invitation details
+    inv_more_info: "Mer informasjon kommer snart! Vi gir beskjed når resten av nettsiden er klar.",
+    inv_rsvp_notice: "svar-funksjonalitet vil bli lagt til snart med en frist, slik at vi kan informere lokalet om det endelige antall gjester.",
+    inv_faq_title: "Kort FAQ",
+    inv_faq_plusone_q: "Kan jeg ta med en +1?",
+    inv_faq_plusone_a: "Navnene på denne invitasjonen er gjestene vi har mulighet til å invitere. Vi har mange kjære familiemedlemmer og venner, og selv om vi skulle ønske vi kunne feire med alle i livene våre, har vi måttet ta vanskelige valg for å holde gjestelisten håndterbar. Vi håper du forstår.",
+    inv_travel_title: "Reiseinformasjon",
+    inv_travel_tap: "TAP Air Portugal er det vanligste flyselskapet for reiser til Portugal. Vi er i kontakt med dem om gruppebilletter som kan gi bedre priser. Vi gir beskjed så snart vi vet mer!",
+    inv_when: "Når",
+    inv_where: "Hvor"
   }
 };
 
