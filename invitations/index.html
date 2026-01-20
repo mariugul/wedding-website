@@ -75,8 +75,6 @@
     .info-section p:last-child {
       margin-bottom: 0;
     }
-    .faq-section {
-    }
     .faq-question {
       font-weight: 600;
       color: rgba(255, 255, 255, 0.95);
@@ -85,8 +83,6 @@
     }
     .faq-question:first-of-type {
       margin-top: 0;
-    }
-    .travel-section {
     }
     .notice-box {
       background: #2c3e50;
@@ -147,6 +143,105 @@
       border-radius: 16px;
       box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.1);
     }
+    /* RSVP Form */
+    .rsvp-section {
+      background: #2c3e50;
+      border-radius: 8px;
+      padding: 25px;
+      margin: 25px 0;
+      text-align: left;
+    }
+    .rsvp-section h3 {
+      color: white;
+      margin: 0 0 20px 0;
+      font-size: 1.1rem;
+    }
+    .rsvp-options {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+    .rsvp-btn {
+      flex: 1;
+      min-width: 100px;
+      padding: 15px 20px;
+      border: 2px solid rgba(255,255,255,0.3);
+      border-radius: 8px;
+      background: transparent;
+      color: white;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .rsvp-btn:hover {
+      border-color: rgba(255,255,255,0.6);
+      background: rgba(255,255,255,0.1);
+    }
+    .rsvp-btn.selected {
+      border-color: #4ade80;
+      background: rgba(74, 222, 128, 0.2);
+    }
+    .rsvp-btn.selected.no {
+      border-color: #f87171;
+      background: rgba(248, 113, 113, 0.2);
+    }
+    .rsvp-btn.selected.maybe {
+      border-color: #fbbf24;
+      background: rgba(251, 191, 36, 0.2);
+    }
+    .rsvp-comment {
+      width: 100%;
+      padding: 12px;
+      border: 2px solid rgba(255,255,255,0.3);
+      border-radius: 8px;
+      background: rgba(255,255,255,0.1);
+      color: white;
+      font-size: 0.95rem;
+      resize: vertical;
+      min-height: 80px;
+      margin-bottom: 15px;
+    }
+    .rsvp-comment::placeholder {
+      color: rgba(255,255,255,0.5);
+    }
+    .rsvp-submit {
+      background: #4ade80;
+      color: #1a1a2e;
+      border: none;
+      padding: 12px 30px;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .rsvp-submit:hover {
+      background: #22c55e;
+    }
+    .rsvp-submit:disabled {
+      background: #666;
+      cursor: not-allowed;
+    }
+    .rsvp-status {
+      margin-top: 15px;
+      padding: 10px;
+      border-radius: 6px;
+      font-size: 0.9rem;
+    }
+    .rsvp-status.success {
+      background: rgba(74, 222, 128, 0.2);
+      color: #4ade80;
+    }
+    .rsvp-status.error {
+      background: rgba(248, 113, 113, 0.2);
+      color: #f87171;
+    }
+    .rsvp-current {
+      color: rgba(255,255,255,0.7);
+      font-size: 0.85rem;
+      margin-bottom: 15px;
+    }
     @media (max-width: 600px) {
       .details-grid {
         grid-template-columns: 1fr;
@@ -154,6 +249,9 @@
       .invitation-container {
         padding: 20px;
         margin: 60px auto;
+      }
+      .rsvp-options {
+        flex-direction: column;
       }
     }
   </style>
@@ -246,9 +344,25 @@
           </div>
           ` : ''}
           
-          <div class="notice-box">
-            <p>📬 ${t('inv_more_info')}</p>
-            <p>✅ ${t('inv_rsvp_notice')}</p>
+          <div class="rsvp-section">
+            <h3>💌 ${t('rsvp_title')}</h3>
+            <div id="rsvp-current" class="rsvp-current"></div>
+            <div class="rsvp-options">
+              <button type="button" class="rsvp-btn" data-value="yes" onclick="selectRsvp('yes')">
+                ✓ ${t('rsvp_yes')}
+              </button>
+              <button type="button" class="rsvp-btn maybe" data-value="maybe" onclick="selectRsvp('maybe')">
+                ? ${t('rsvp_maybe')}
+              </button>
+              <button type="button" class="rsvp-btn no" data-value="no" onclick="selectRsvp('no')">
+                ✗ ${t('rsvp_no')}
+              </button>
+            </div>
+            <textarea class="rsvp-comment" id="rsvp-comment" placeholder="${t('rsvp_comment_placeholder')}"></textarea>
+            <button class="rsvp-submit" id="rsvp-submit" onclick="submitRsvp()" disabled>
+              ${t('rsvp_submit')}
+            </button>
+            <div id="rsvp-status"></div>
           </div>
           
           <div class="info-section faq-section">
@@ -272,10 +386,140 @@
             <iframe src="${mapEmbed}" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
           </div>
           ` : ''}
+          
+          <div class="notice-box">
+            <p>📬 ${t('inv_more_info')}</p>
+          </div>
         `;
+        
+        // Load existing RSVP after render
+        setTimeout(loadExistingRsvp, 0);
       } else if (guestData === false) {
         content.innerHTML = `<p class="error-message">${t('invitation_not_found')}<br>${t('invitation_check_or_contact')}</p>`;
       }
+    }
+
+    // RSVP Functions
+    let selectedRsvp = null;
+    const isLocalDev = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+    const RSVP_STORAGE_KEY = 'wedding-rsvps';
+    
+    function getRsvpStorage() {
+      try {
+        return JSON.parse(localStorage.getItem(RSVP_STORAGE_KEY)) || {};
+      } catch {
+        return {};
+      }
+    }
+    
+    function saveRsvpStorage(data) {
+      localStorage.setItem(RSVP_STORAGE_KEY, JSON.stringify(data));
+    }
+    
+    function selectRsvp(value) {
+      selectedRsvp = value;
+      document.querySelectorAll('.rsvp-btn').forEach(btn => {
+        btn.classList.remove('selected');
+        if (btn.dataset.value === value) {
+          btn.classList.add('selected');
+        }
+      });
+      document.getElementById('rsvp-submit').disabled = false;
+    }
+    
+    async function loadExistingRsvp() {
+      if (!guestId) return;
+      
+      try {
+        let rsvpData = null;
+        
+        if (isLocalDev) {
+          // Use localStorage for local development
+          const storage = getRsvpStorage();
+          rsvpData = storage[guestId];
+        } else {
+          // Use Cloudflare Worker in production
+          const res = await fetch(`/api/rsvp/${guestId}`);
+          if (res.ok) {
+            rsvpData = await res.json();
+          }
+        }
+        
+        if (rsvpData) {
+          // Show current status
+          const statusText = {
+            yes: t('rsvp_status_yes'),
+            no: t('rsvp_status_no'),
+            maybe: t('rsvp_status_maybe')
+          };
+          document.getElementById('rsvp-current').textContent = 
+            `${t('rsvp_current')}: ${statusText[rsvpData.status] || rsvpData.status}`;
+          
+          // Pre-select the option
+          selectRsvp(rsvpData.status);
+          
+          // Fill comment
+          if (rsvpData.comment) {
+            document.getElementById('rsvp-comment').value = rsvpData.comment;
+          }
+        }
+      } catch (err) {
+        console.log('Could not load existing RSVP:', err);
+      }
+    }
+    
+    async function submitRsvp() {
+      if (!selectedRsvp || !guestId) return;
+      
+      const submitBtn = document.getElementById('rsvp-submit');
+      const statusDiv = document.getElementById('rsvp-status');
+      const comment = document.getElementById('rsvp-comment').value.trim();
+      
+      submitBtn.disabled = true;
+      submitBtn.textContent = t('rsvp_saving');
+      
+      const rsvpData = {
+        status: selectedRsvp,
+        comment: comment,
+        updatedAt: new Date().toISOString(),
+        guestId: guestId
+      };
+      
+      try {
+        if (isLocalDev) {
+          // Save to localStorage for local development
+          const storage = getRsvpStorage();
+          storage[guestId] = rsvpData;
+          saveRsvpStorage(storage);
+        } else {
+          // Save to Cloudflare Worker in production
+          const res = await fetch(`/api/rsvp/${guestId}`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(rsvpData)
+          });
+          if (!res.ok) throw new Error('Failed to save');
+        }
+        
+        statusDiv.className = 'rsvp-status success';
+        statusDiv.textContent = t('rsvp_saved');
+        
+        // Update current status display
+        const statusText = {
+          yes: t('rsvp_status_yes'),
+          no: t('rsvp_status_no'),
+          maybe: t('rsvp_status_maybe')
+        };
+        document.getElementById('rsvp-current').textContent = 
+          `${t('rsvp_current')}: ${statusText[selectedRsvp]}`;
+        
+      } catch (err) {
+        statusDiv.className = 'rsvp-status error';
+        statusDiv.textContent = t('rsvp_error');
+      }
+      
+      submitBtn.disabled = false;
+      submitBtn.textContent = t('rsvp_submit');
     }
 
     // Load data
@@ -296,11 +540,15 @@
             document.body.style.backgroundImage = `url('/invitations/${config.backgroundImage}')`;
           }
           
-          const guest = guests[guestId];
-          if (!guest) {
+          const invitation = guests[guestId];
+          if (!invitation) {
             guestData = false;
           } else {
-            guestData = guest;
+            // Use displayName for the invitation header
+            guestData = {
+              ...invitation,
+              name: invitation.displayName || invitation.name
+            };
           }
           renderContent();
         })

@@ -219,7 +219,22 @@ const translations = {
     inv_travel_tap: "TAP Air Portugal is the most common airline for flights to Portugal. We are in contact with them about group tickets which may offer better prices. We will let you know as soon as we have more details!",
     inv_travel_note: "However, if you find good tickets on your own, go ahead and book them — don't wait for us!",
     inv_when: "When",
-    inv_where: "Where"
+    inv_where: "Where",
+    
+    // RSVP Form
+    rsvp_title: "RSVP",
+    rsvp_yes: "Yes, I'll be there!",
+    rsvp_no: "Sorry, can't make it",
+    rsvp_maybe: "Not sure yet",
+    rsvp_comment_placeholder: "Any message for us? (optional)",
+    rsvp_submit: "Submit RSVP",
+    rsvp_saving: "Saving...",
+    rsvp_saved: "Thank you! Your response has been saved.",
+    rsvp_error: "Could not save. Please try again.",
+    rsvp_current: "Your current response",
+    rsvp_status_yes: "Yes, attending",
+    rsvp_status_no: "Not attending",
+    rsvp_status_maybe: "Maybe"
   },
   
   pt: {
@@ -428,7 +443,22 @@ const translations = {
     inv_travel_tap: "A TAP Air Portugal é a companhia aérea mais comum para voos para Portugal. Estamos em contato com eles sobre bilhetes de grupo que podem oferecer melhores preços. Avisaremos assim que tivermos mais detalhes!",
     inv_travel_note: "No entanto, se você encontrar boas passagens por conta própria, pode comprar — não precisa esperar por nós!",
     inv_when: "Quando",
-    inv_where: "Onde"
+    inv_where: "Onde",
+    
+    // RSVP Form
+    rsvp_title: "Confirmação",
+    rsvp_yes: "Sim, estarei lá!",
+    rsvp_no: "Desculpe, não poderei ir",
+    rsvp_maybe: "Ainda não tenho certeza",
+    rsvp_comment_placeholder: "Alguma mensagem para nós? (opcional)",
+    rsvp_submit: "Enviar confirmação",
+    rsvp_saving: "Salvando...",
+    rsvp_saved: "Obrigado! Sua resposta foi salva.",
+    rsvp_error: "Não foi possível salvar. Tente novamente.",
+    rsvp_current: "Sua resposta atual",
+    rsvp_status_yes: "Sim, vou participar",
+    rsvp_status_no: "Não vou participar",
+    rsvp_status_maybe: "Talvez"
   },
   
   no: {
@@ -637,7 +667,22 @@ const translations = {
     inv_travel_tap: "TAP Air Portugal er det vanligste flyselskapet for reiser til Portugal. Vi er i kontakt med dem om gruppebilletter som kan gi bedre priser. Vi gir beskjed så snart vi vet mer!",
     inv_travel_note: "Men hvis du finner gode billetter på egen hånd, bare kjøp dem — ikke vent på oss!",
     inv_when: "Når",
-    inv_where: "Hvor"
+    inv_where: "Hvor",
+    
+    // RSVP Form
+    rsvp_title: "Svar",
+    rsvp_yes: "Ja, jeg kommer!",
+    rsvp_no: "Beklager, kan ikke komme",
+    rsvp_maybe: "Usikker ennå",
+    rsvp_comment_placeholder: "Noe du vil si til oss? (valgfritt)",
+    rsvp_submit: "Send svar",
+    rsvp_saving: "Lagrer...",
+    rsvp_saved: "Takk! Svaret ditt er lagret.",
+    rsvp_error: "Kunne ikke lagre. Prøv igjen.",
+    rsvp_current: "Ditt nåværende svar",
+    rsvp_status_yes: "Ja, jeg kommer",
+    rsvp_status_no: "Kommer ikke",
+    rsvp_status_maybe: "Kanskje"
   }
 };
 

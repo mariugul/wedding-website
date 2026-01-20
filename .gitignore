@@ -3,6 +3,9 @@ invitations/guests.json
 invitations/config.json
 invitations/images/
 
+# Secret admin page
+admin-9f8k2x/
+
 # Wrangler/Node
 .wrangler/
 node_modules/
