@@ -13,9 +13,10 @@
       text-align: center;
     }
     .guest-name {
-      font-size: 2.2rem;
+      font-size: 2.5rem;
       margin-bottom: 20px;
       color: var(--primary-color, #2c3e50);
+      font-weight: 600;
     }
     .invitation-text {
       font-size: 1.2rem;
@@ -31,64 +32,76 @@
       text-align: left;
     }
     .detail-box {
-      background: #f8f9fa;
-      padding: 20px;
+      background: #2c3e50;
+      padding: 25px;
       border-radius: 8px;
+      color: white;
     }
     .detail-box h3 {
       margin: 0 0 10px 0;
-      color: var(--primary-color, #2c3e50);
-      font-size: 1rem;
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 400;
     }
     .detail-box p {
       margin: 0;
-      font-size: 1.1rem;
+      font-size: 1.15rem;
+      font-weight: 500;
+      color: white;
     }
     .info-section {
-      background: #fff;
-      border: 1px solid #eee;
+      background: #2c3e50;
+      border: none;
       border-radius: 8px;
       padding: 25px;
-      margin: 25px 0;
+      margin: 20px 0;
       text-align: left;
+      color: white;
     }
     .info-section h3 {
       margin: 0 0 15px 0;
-      color: var(--primary-color, #2c3e50);
+      color: rgba(255, 255, 255, 0.9);
+      font-size: 1rem;
+      font-weight: 600;
     }
     .info-section p {
-      margin: 0 0 10px 0;
-      line-height: 1.6;
-      color: #555;
+      margin: 0 0 12px 0;
+      line-height: 1.7;
+      color: rgba(255, 255, 255, 0.85);
+      font-size: 0.95rem;
     }
     .info-section p:last-child {
       margin-bottom: 0;
     }
     .faq-section {
-      background: #fef9e7;
-      border: 1px solid #f9e79f;
     }
     .faq-question {
-      font-weight: bold;
-      color: var(--primary-color, #2c3e50);
-      margin-bottom: 8px;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.95);
+      margin-bottom: 6px;
+      margin-top: 16px;
+    }
+    .faq-question:first-of-type {
+      margin-top: 0;
     }
     .travel-section {
-      background: #eaf2f8;
-      border: 1px solid #aed6f1;
     }
     .notice-box {
-      background: #e8f6f3;
-      border: 1px solid #a3e4d7;
+      background: #2c3e50;
+      border: none;
       border-radius: 8px;
-      padding: 20px;
-      margin: 20px 0;
+      padding: 20px 25px;
+      margin: 25px 0;
       text-align: left;
+      color: white;
     }
     .notice-box p {
       margin: 0 0 10px 0;
       line-height: 1.6;
-      color: #555;
+      color: rgba(255, 255, 255, 0.9);
+      font-size: 0.95rem;
     }
     .notice-box p:last-child {
       margin-bottom: 0;
@@ -116,10 +129,23 @@
     }
     .language-switcher select {
       padding: 8px 12px;
-      border-radius: 4px;
-      border: 1px solid #ddd;
-      background: white;
+      border-radius: 6px;
+      border: none;
+      background: #2c3e50;
+      color: white;
       cursor: pointer;
+      font-size: 0.9rem;
+    }
+    .has-background {
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      min-height: 100vh;
+    }
+    .has-background .invitation-container {
+      background: rgba(245, 235, 220, 0.98);
+      border-radius: 16px;
+      box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.1);
     }
     @media (max-width: 600px) {
       .details-grid {
@@ -196,6 +222,7 @@
         const dateText = configData?.date?.[currentLang] || configData?.date?.en || '';
         const venueText = configData?.venue || '';
         const locationText = configData?.venueLocation || '';
+        const mapEmbed = configData?.mapEmbed || '';
         
         content.innerHTML = `
           <h1 class="guest-name">${guestData.name}</h1>
@@ -213,7 +240,7 @@
             <div class="detail-box">
               <h3>📍 ${t('inv_where')}</h3>
               <p>${venueText}</p>
-              ${locationText ? `<p style="font-size: 0.9rem; color: #666;">${locationText}</p>` : ''}
+              ${locationText ? `<p style="font-size: 0.9rem; color: rgba(255,255,255,0.6);">${locationText}</p>` : ''}
             </div>
             ` : ''}
           </div>
@@ -224,16 +251,27 @@
             <p>✅ ${t('inv_rsvp_notice')}</p>
           </div>
           
-          <div class="info-section travel-section">
-            <h3>✈️ ${t('inv_travel_title')}</h3>
-            <p>${t('inv_travel_tap')}</p>
-          </div>
-          
           <div class="info-section faq-section">
             <h3>❓ ${t('inv_faq_title')}</h3>
             <p class="faq-question">${t('inv_faq_plusone_q')}</p>
             <p>${t('inv_faq_plusone_a')}</p>
+            <p class="faq-question" style="margin-top: 15px;">${t('inv_faq_children_q')}</p>
+            <p>${t('inv_faq_children_a')}</p>
+            <p class="faq-question" style="margin-top: 15px;">${t('inv_faq_hotel_q')}</p>
+            <p>${t('inv_faq_hotel_a')}</p>
           </div>
+          
+          <div class="info-section travel-section">
+            <h3>✈️ ${t('inv_travel_title')}</h3>
+            <p>${t('inv_travel_tap')}</p>
+            <p><em>${t('inv_travel_note')}</em></p>
+          </div>
+          
+          ${mapEmbed ? `
+          <div class="map-container" style="margin: 25px 0; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+            <iframe src="${mapEmbed}" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+          ` : ''}
         `;
       } else if (guestData === false) {
         content.innerHTML = `<p class="error-message">${t('invitation_not_found')}<br>${t('invitation_check_or_contact')}</p>`;
@@ -251,6 +289,13 @@
       ])
         .then(([guests, config]) => {
           configData = config;
+          
+          // Apply background image if configured
+          if (config?.backgroundImage) {
+            document.body.classList.add('has-background');
+            document.body.style.backgroundImage = `url('/invitations/${config.backgroundImage}')`;
+          }
+          
           const guest = guests[guestId];
           if (!guest) {
             guestData = false;
