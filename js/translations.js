@@ -193,7 +193,17 @@ const translations = {
     footer_updated: "Last updated: January 2026",
     
     // Language switcher
-    lang_select: "Language"
+    lang_select: "Language",
+    
+    // Invitations
+    invitation_title: "Wedding Invitation",
+    invitation_no_link: "If you are invited, you would have received a private link to your personal invitation.",
+    invitation_check_link: "Please check your initial invitation for your unique link.",
+    invitation_not_found: "Invitation not found.",
+    invitation_check_or_contact: "Please check your link or contact us.",
+    invitation_error: "Could not load invitation.",
+    invitation_try_again: "Please try again later.",
+    rsvp_coming_soon: "RSVP coming soon"
   },
   
   pt: {
@@ -376,7 +386,17 @@ const translations = {
     footer_updated: "Última atualização: Janeiro de 2026",
     
     // Language switcher
-    lang_select: "Idioma"
+    lang_select: "Idioma",
+    
+    // Invitations
+    invitation_title: "Convite de Casamento",
+    invitation_no_link: "Se você foi convidado, você teria recebido um link privado para o seu convite pessoal.",
+    invitation_check_link: "Por favor, verifique seu convite inicial para encontrar seu link único.",
+    invitation_not_found: "Convite não encontrado.",
+    invitation_check_or_contact: "Por favor, verifique seu link ou entre em contato conosco.",
+    invitation_error: "Não foi possível carregar o convite.",
+    invitation_try_again: "Por favor, tente novamente mais tarde.",
+    rsvp_coming_soon: "Confirmação em breve"
   },
   
   no: {
@@ -559,7 +579,17 @@ const translations = {
     footer_updated: "Sist oppdatert: Januar 2026",
     
     // Language switcher
-    lang_select: "Språk"
+    lang_select: "Språk",
+    
+    // Invitations
+    invitation_title: "Bryllupsinvitasjon",
+    invitation_no_link: "Hvis du er invitert, ville du ha mottatt en privat lenke til din personlige invitasjon.",
+    invitation_check_link: "Vennligst sjekk din opprinnelige invitasjon for din unike lenke.",
+    invitation_not_found: "Invitasjon ikke funnet.",
+    invitation_check_or_contact: "Vennligst sjekk lenken din eller kontakt oss.",
+    invitation_error: "Kunne ikke laste invitasjonen.",
+    invitation_try_again: "Vennligst prøv igjen senere.",
+    rsvp_coming_soon: "Svar kommer snart"
   }
 };
 

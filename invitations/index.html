@@ -32,46 +32,115 @@
       color: #c0392b;
       padding: 40px;
     }
+    .info-message {
+      color: #555;
+      padding: 40px;
+      line-height: 1.8;
+    }
+    .info-message h2 {
+      color: var(--primary-color, #2c3e50);
+      margin-bottom: 20px;
+    }
     .loading {
       color: #666;
+    }
+    .language-switcher {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+    }
+    .language-switcher select {
+      padding: 8px 12px;
+      border-radius: 4px;
+      border: 1px solid #ddd;
+      background: white;
+      cursor: pointer;
     }
   </style>
 </head>
 <body>
+  <div class="language-switcher">
+    <select id="langSelect" onchange="changeLanguage(this.value)">
+      <option value="en">English</option>
+      <option value="pt">Português</option>
+      <option value="no">Norsk</option>
+    </select>
+  </div>
+
   <div class="invitation-container">
     <div id="content" class="loading">Loading...</div>
   </div>
 
+  <script src="../js/translations.js?v=2"></script>
   <script>
+    // Get language from localStorage or browser
+    let currentLang = localStorage.getItem('wedding-lang') || 
+                      navigator.language.slice(0, 2) || 'en';
+    if (!['en', 'pt', 'no'].includes(currentLang)) currentLang = 'en';
+    
+    // Set language selector
+    document.getElementById('langSelect').value = currentLang;
+    
+    // Translation helper
+    function t(key) {
+      return translations[currentLang]?.[key] || translations['en'][key] || key;
+    }
+    
+    // Change language
+    function changeLanguage(lang) {
+      currentLang = lang;
+      localStorage.setItem('wedding-lang', lang);
+      renderContent();
+    }
+    
     // Get guest ID from URL: ?guest=smith or #smith
     const params = new URLSearchParams(window.location.search);
     const guestId = params.get('guest') || window.location.hash.slice(1);
+    
+    // Store guest data
+    let guestData = null;
 
     const content = document.getElementById('content');
+    
+    function renderContent() {
+      if (!guestId) {
+        content.innerHTML = `
+          <div class="info-message">
+            <h2>${t('invitation_title')}</h2>
+            <p>${t('invitation_no_link')}</p>
+            <p>${t('invitation_check_link')}</p>
+          </div>
+        `;
+      } else if (guestData) {
+        content.innerHTML = `
+          <h1 class="guest-name">${guestData.name}</h1>
+          <p class="invitation-text">${guestData.text}</p>
+          <div class="rsvp-notice">
+            <strong>${t('rsvp_coming_soon')}</strong>
+          </div>
+        `;
+      } else if (guestData === false) {
+        content.innerHTML = `<p class="error-message">${t('invitation_not_found')}<br>${t('invitation_check_or_contact')}</p>`;
+      }
+    }
 
+    // Load guest data if needed
     if (!guestId) {
-      content.innerHTML = '<p class="error-message">No invitation found.<br>Please use the link provided in your invitation.</p>';
+      renderContent();
     } else {
-      // Load guest data
       fetch('guests.json')
         .then(res => res.json())
         .then(guests => {
           const guest = guests[guestId];
           if (!guest) {
-            content.innerHTML = '<p class="error-message">Invitation not found.<br>Please check your link or contact us.</p>';
-            return;
+            guestData = false;
+          } else {
+            guestData = guest;
           }
-          
-          content.innerHTML = `
-            <h1 class="guest-name">${guest.name}</h1>
-            <p class="invitation-text">${guest.text}</p>
-            <div class="rsvp-notice">
-              <strong>RSVP coming soon</strong>
-            </div>
-          `;
+          renderContent();
         })
         .catch(err => {
-          content.innerHTML = '<p class="error-message">Could not load invitation.<br>Please try again later.</p>';
+          content.innerHTML = `<p class="error-message">${t('invitation_error')}<br>${t('invitation_try_again')}</p>`;
         });
     }
   </script>
