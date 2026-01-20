@@ -112,6 +112,11 @@
           </div>
         `;
       } else if (guestData) {
+        // Use guest's preferred language
+        if (guestData.lang && ['en', 'pt', 'no'].includes(guestData.lang)) {
+          currentLang = guestData.lang;
+          document.getElementById('langSelect').value = currentLang;
+        }
         content.innerHTML = `
           <h1 class="guest-name">${guestData.name}</h1>
           <p class="invitation-text">${guestData.text}</p>
